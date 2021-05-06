@@ -1,5 +1,5 @@
 import pytest
-
+import subprocess
 from app import app as flask_app
 
 @pytest.fixture
@@ -14,6 +14,9 @@ def test_index(app, client):
     res = client.get('/')
     assert res.status_code == 302
     page_output = res.get_data(as_text=True)
+    res2 = client.get('/fortune/')
+    page_output2 = res.get_data(as_text=True)
+    assert page_output == page_output2
     
 
 def test_cowsay(app, client):
@@ -33,13 +36,20 @@ def test_fortune(app, client):
     res = client.get('/fortune/')
     assert res.status_code == 200
     page_output = res.get_data(as_text=True)
-    assert '</pre>' in page_output
+    chek = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if len(chek.stderr.decode("utf-8")) != 0:
+        assert page_output == 'fail to use fortune'
+    else:
+        assert '</pre>' in page_output
 
 
 def test_cowfortune(app, client):
     res = client.get('/cowfortune/')
     assert res.status_code == 200
     page_output = res.get_data(as_text=True)
-    assert '</pre>' in page_output
-    assert '(oo)' in page_output
-
+    chek = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if len(chek.stderr.decode("utf-8")) != 0:
+        assert page_output == 'fail to use fortune'
+    else:
+        assert '</pre>' in page_output
+        assert '(oo)' in page_output

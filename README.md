@@ -8,7 +8,7 @@ Type `docker build -t sawashu/webfortune .`
 
 ## Run App
 
-To run from the command line, type `python3 -m flask run --host=0.0.0.0`.
+To run from the command line, type `docker run -it sawashu/webfortune /bin/bash`. Then, type `python3 -m flask run --host=0.0.0.0`.
 To run from the docker, type `docker run -dp <CONTAINER_PORT>:5000 sawashu/webfortune`.
 
 ## Test App

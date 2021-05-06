@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY app.py app.py
 COPY requirements.txt requirements.txt
+COPY test_app.py test_app.py
 
 RUN apt-get update
 RUN apt-get install -y fortune fortunes

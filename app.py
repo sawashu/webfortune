@@ -9,9 +9,12 @@ def index():
 
 @app.route('/fortune/')
 def fortune():
-    say = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    res = say.stdout.decode("utf-8")
-    return '<pre>'+res+'</pre>'
+    try:
+        say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+        res = say.stdout.decode("utf-8")
+        return '<pre>'+res+'</pre>'
+    except:
+        return 'fail to use fortune'
 
 @app.route('/cowsay/<message>/')
 def cowsay(message):
@@ -25,7 +28,10 @@ def cowsay(message):
 
 @app.route('/cowfortune/')
 def cowfortune():
-    say = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    res = cow.stdout.decode("utf-8")
-    return '<pre>' + res + '</pre>'
+    try:
+        say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+        cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        res = cow.stdout.decode("utf-8")
+        return '<pre>' + res + '</pre>'
+    except:
+        return 'fail to use fortune'
