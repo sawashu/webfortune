@@ -28,10 +28,10 @@ def cowsay(message):
 
 @app.route('/cowfortune/')
 def cowfortune():
-    try:
-        say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+    say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+    
+    if len(say.stdout.decode("utf-8")) != 0:
         cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE)
         res = cow.stdout.decode("utf-8")
         return '<pre>' + res + '</pre>'
-    except:
-        return 'fail to use fortune'
+    return 'fail to use fortune'
