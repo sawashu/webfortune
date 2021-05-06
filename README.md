@@ -1,3 +1,5 @@
+![example workflow](https://github.com/sawashu/webfortune/actions/.github/workflows/python-app.yml/badge.svg)
+
 # Webfortune
 
 This application is a Dockerrized Flask App that provides a Web front-end to the well-known Linux programs 'cowsay' and 'fortune'. 
