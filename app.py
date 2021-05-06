@@ -10,7 +10,7 @@ def index():
 @app.route('/fortune/')
 def fortune():
     try:
-        say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+        say = subprocess.run(['fortune'])
         res = say.stdout.decode("utf-8")
         return '<pre>'+res+'</pre>'
     except:
