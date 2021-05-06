@@ -10,8 +10,8 @@ def index():
 @app.route('/fortune/')
 def fortune():
     try:
-        say = subprocess.run(['fortune'])
-        res = say.stdout.decode("utf-8")
+        say = subprocess.check_output(['fortune'])
+        res = say.decode("utf-8")
         return '<pre>'+res+'</pre>'
     except:
         return 'fail to use fortune'

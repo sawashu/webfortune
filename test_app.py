@@ -48,7 +48,7 @@ def test_cowfortune(app, client):
     assert res.status_code == 200
     page_output = res.get_data(as_text=True)
     chek = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    if len(chek.stderr.decode("utf-8")) != 0:
+    if len(chek.stdout.decode("utf-8")) == 0:
         assert page_output == 'fail to use fortune'
     else:
         assert '</pre>' in page_output
