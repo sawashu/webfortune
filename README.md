@@ -1,5 +1,5 @@
 # Webfortune
-![Pytests](https://github.com/sawashu/webfortune/.github/workflows/python-app.yml/badge.svg)
+![Pytests](https://github.com/sawashu/webfortune/actions/workflows/python-app.yml/badge.svg)
 
 ![Pytests](https://github.com/sawashu/webfortune/blob/main/.github/workflows/python-app.yml/badge.svg)
 
