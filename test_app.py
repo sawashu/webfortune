@@ -52,4 +52,3 @@ def test_cowfortune(app, client):
         assert page_output == 'fail to use fortune'
     else:
         assert '</pre>' in page_output
-        assert '(oo)' in page_output

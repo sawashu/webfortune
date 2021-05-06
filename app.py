@@ -28,7 +28,7 @@ def cowsay(message):
 
 @app.route('/cowfortune/')
 def cowfortune():
-    say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
+    say = subprocess.run(['fortune'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
     if len(say.stdout.decode("utf-8")) != 0:
         cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE)
