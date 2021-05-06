@@ -1,4 +1,4 @@
-![example workflow](https://github.com/sawashu/webfortune/actions/.github/workflows/python-app.yml/badge.svg)
+![Pytests](https://github.com/sawashu/webfortune/actions/.github/workflows/python-app.yml/badge.svg)
 
 # Webfortune
 
