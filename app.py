@@ -30,7 +30,7 @@ def cowsay(message):
 def cowfortune():
     try:
         say = subprocess.run(['fortune'], stdout=subprocess.PIPE)
-        cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        cow = subprocess.run(['cowsay'], input=say.stdout, stdout=subprocess.PIPE)
         res = cow.stdout.decode("utf-8")
         return '<pre>' + res + '</pre>'
     except:
