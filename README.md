@@ -1,6 +1,8 @@
 # Webfortune
 ![Pytests](https://github.com/sawashu/webfortune/.github/workflows/python-app.yml/badge.svg)
 
+![Pytests](https://github.com/sawashu/webfortune/blob/main/.github/workflows/python-app.yml/badge.svg)
+
 This application is a Dockerrized Flask App that provides a Web front-end to the well-known Linux programs 'cowsay' and 'fortune'. 
 
 ## Build Docker Image
